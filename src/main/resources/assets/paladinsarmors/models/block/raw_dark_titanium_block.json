@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "paladinsarmors:block/raw_dark_titanium_block"
+  }
+}

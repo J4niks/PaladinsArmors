@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "paladinsarmors:platinum_block"
+    }
+  ],
+  "result": {
+    "item": "paladinsarmors:platinum_ingot",
+    "count": 9
+  }
+}

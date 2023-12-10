@@ -1,0 +1,21 @@
+{
+  "values": [
+    "paladinsarmors:platinum_block",
+    "paladinsarmors:raw_platinum_block",
+    "paladinsarmors:platinum_ore",
+    "paladinsarmors:nether_platinum_ore",
+    "paladinsarmors:end_platinum_ore",
+    "paladinsarmors:deepslate_platinum_ore",
+    "paladinsarmors:dark_titanium_block",
+    "paladinsarmors:raw_dark_titanium_block",
+    "paladinsarmors:red_steel_block",
+    "paladinsarmors:raw_red_steel_block",
+    "paladinsarmors:pink_azure_block",
+    "paladinsarmors:raw_pink_azure_block",
+    "paladinsarmors:pladium_block",
+    "paladinsarmors:pink_azure_ore",
+    "paladinsarmors:deepslate_pink_azure_ore",
+    "paladinsarmors:dark_titanium_ore",
+    "paladinsarmors:red_steel_ore"
+  ]
+}

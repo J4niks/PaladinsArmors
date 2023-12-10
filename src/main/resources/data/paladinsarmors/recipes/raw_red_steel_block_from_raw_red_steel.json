@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#":{
+      "item": "paladinsarmors:raw_red_steel"
+    }
+  },
+  "result": {
+    "item":"paladinsarmors:raw_red_steel_block"
+  }
+}

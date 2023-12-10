@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#":{
+      "item": "paladinsarmors:platinum_ingot"
+    }
+  },
+  "result": {
+    "item":"paladinsarmors:platinum_block"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#":{
+      "item": "paladinsarmors:raw_dark_titanium"
+    }
+  },
+  "result": {
+    "item":"paladinsarmors:raw_dark_titanium_block"
+  }
+}

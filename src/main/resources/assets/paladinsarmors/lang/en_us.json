@@ -1,0 +1,32 @@
+{
+  "item.paladinsarmors.platinum_ingot": "Platinum Ingot",
+  "item.paladinsarmors.pink_azure_ingot": "Pink Azure Ingot",
+  "item.paladinsarmors.dark_titanium_ingot": "Dark Titanium Ingot",
+  "item.paladinsarmors.red_steel_ingot": "Red Steel Ingot",
+  "item.paladinsarmors.pladium_ingot": "Pladium Ingot",
+  "item.paladinsarmors.raw_platinum": "Raw Platinum",
+  "item.paladinsarmors.raw_pink_azure": "Raw Pink Azure",
+  "item.paladinsarmors.raw_dark_titanium": "Raw Dark Titanium",
+  "item.paladinsarmors.raw_red_steel": "Raw Red Steel",
+  "item.paladinsarmors.raw_pladium_compound": "Raw Pladium Compound",
+  "block.paladinsarmors.pink_azure_block": "Pink Azure Block",
+  "block.paladinsarmors.raw_pink_azure_block": "Raw Pink Azure Block",
+  "block.paladinsarmors.dark_titanium_block": "Dark Titanium Block",
+  "block.paladinsarmors.raw_dark_titanium_block": "Raw Dark Titanium Block",
+  "block.paladinsarmors.red_steel_block": "Red steel block",
+  "block.paladinsarmors.raw_red_steel_block": "Raw Red Steel Block",
+  "block.paladinsarmors.pladium_block": "Pladium_block",
+  "block.paladinsarmors.platinum_block": "Block of Platinum",
+  "block.paladinsarmors.raw_platinum_block": "Block of raw Platinum",
+  "block.paladinsarmors.platinum_ore": "Platinum Ore",
+  "block.paladinsarmors.end_platinum_ore": "End Platinum Ore",
+  "block.paladinsarmors.nether_platinum_ore": "Nether Platinum Ore",
+  "block.paladinsarmors.deepslate_platinum_ore": "Deepslate Platinum Ore",
+  "block.paladinsarmors.deepslate_pink_azure_ore": "Deepslate Pink Azure Ore",
+  "block.paladinsarmors.pink_azure_ore": "Pink Azure Ore",
+  "block.paladinsarmors.dark_titanium_ore": "Dark Titanium Ore",
+  "block.paladinsarmors.red_steel_ore": "Red Steel Ore",
+  "creativetab.paladinsarmors_tab": "Paladins Armors"
+
+
+}

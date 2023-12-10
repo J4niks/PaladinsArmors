@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#":{
+      "item": "paladinsarmors:pink_azure_ingot"
+    }
+  },
+  "result": {
+    "item":"paladinsarmors:pink_azure_block"
+  }
+}
