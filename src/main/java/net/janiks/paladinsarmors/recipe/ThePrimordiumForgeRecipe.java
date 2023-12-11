@@ -2,7 +2,6 @@ package net.janiks.paladinsarmors.recipe;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.mojang.datafixers.TypedOptic;
 import net.janiks.paladinsarmors.paladinsarmors;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
@@ -10,7 +9,6 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.SimpleContainer;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
@@ -28,27 +26,28 @@ public class ThePrimordiumForgeRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
-    public boolean matches(SimpleContainer simpleContainer, Level level) {
-        if (level.isClientSide()) {
+    public boolean matches(SimpleContainer pContainer, Level pLevel) {
+        if(pLevel.isClientSide()) {
             return false;
         }
-        return inputItems.get(0).test(simpleContainer.getItem(0)) &&
-                inputItems.get(1).test(simpleContainer.getItem(1)) &&
-                inputItems.get(2).test(simpleContainer.getItem(2));
+
+        return inputItems.get(0).test(pContainer.getItem(0)) &&
+               inputItems.get(1).test(pContainer.getItem(0)) &&
+               inputItems.get(2).test(pContainer.getItem(0));
     }
 
     @Override
-    public ItemStack assemble(SimpleContainer simpleContainer, RegistryAccess registryAccess) {
+    public ItemStack assemble(SimpleContainer pContainer, RegistryAccess pRegistryAccess) {
         return output.copy();
     }
 
     @Override
-    public boolean canCraftInDimensions(int i, int i1) {
+    public boolean canCraftInDimensions(int pWidth, int pHeight) {
         return true;
     }
 
     @Override
-    public ItemStack getResultItem(RegistryAccess registryAccess) {
+    public ItemStack getResultItem(RegistryAccess pRegistryAccess) {
         return output.copy();
     }
 
@@ -68,45 +67,49 @@ public class ThePrimordiumForgeRecipe implements Recipe<SimpleContainer> {
     }
 
     public static class Type implements RecipeType<ThePrimordiumForgeRecipe> {
-
         public static final Type INSTANCE = new Type();
-        public static final String ID = "pladium_ingot";
+        public static final String ID = "forge_melting";
     }
 
-    public static class Serializer implements RecipeSerializer<ThePrimordiumForgeRecipe>{
-        public static final  Serializer INSTANCE = new Serializer();
-        public static final ResourceLocation ID = new ResourceLocation(paladinsarmors.MODID,"pladium_ingot");
-        @Override
-        public ThePrimordiumForgeRecipe fromJson(ResourceLocation resourceLocation, JsonObject jsonObject) {
-            ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(jsonObject, "output"));
-            JsonArray ingredients = GsonHelper.getAsJsonArray(jsonObject,"ingredients");
-            NonNullList<Ingredient> inputs =  NonNullList.withSize(3,Ingredient.EMPTY);
+    public static class Serializer implements RecipeSerializer<ThePrimordiumForgeRecipe> {
+        public static final Serializer INSTANCE = new Serializer();
+        public static final ResourceLocation ID = new ResourceLocation(paladinsarmors.MODID, "forge_melting");
 
-            for (int i= 0; i < inputs.size(); i++) {
+        @Override
+        public ThePrimordiumForgeRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {
+            ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pSerializedRecipe, "output"));
+
+            JsonArray ingredients = GsonHelper.getAsJsonArray(pSerializedRecipe, "ingredients");
+            NonNullList<Ingredient> inputs = NonNullList.withSize(1, Ingredient.EMPTY);
+
+            for(int i = 0; i < inputs.size(); i++) {
                 inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
             }
-            return new ThePrimordiumForgeRecipe(inputs, output, resourceLocation);
+
+            return new ThePrimordiumForgeRecipe(inputs, output, pRecipeId);
         }
 
         @Override
-        public @Nullable ThePrimordiumForgeRecipe fromNetwork(ResourceLocation resourceLocation, FriendlyByteBuf friendlyByteBuf) {
-            NonNullList<Ingredient> inputs = NonNullList.withSize(friendlyByteBuf.readInt(), Ingredient.EMPTY);
-            for (int i = 0; i <inputs.size(); i++){
-                inputs.set(i, Ingredient.fromNetwork(friendlyByteBuf));
+        public @Nullable ThePrimordiumForgeRecipe fromNetwork(ResourceLocation pRecipeId, FriendlyByteBuf pBuffer) {
+            NonNullList<Ingredient> inputs = NonNullList.withSize(pBuffer.readInt(), Ingredient.EMPTY);
+
+            for(int i = 0; i < inputs.size(); i++) {
+                inputs.set(i, Ingredient.fromNetwork(pBuffer));
             }
-            ItemStack output = friendlyByteBuf.readItem();
-            return new ThePrimordiumForgeRecipe(inputs, output, resourceLocation);
+
+            ItemStack output = pBuffer.readItem();
+            return new ThePrimordiumForgeRecipe(inputs, output, pRecipeId);
         }
 
         @Override
-        public void toNetwork(FriendlyByteBuf friendlyByteBuf, ThePrimordiumForgeRecipe thePrimordiumForgeRecipe) {
-            friendlyByteBuf.writeInt(thePrimordiumForgeRecipe.inputItems.size());
+        public void toNetwork(FriendlyByteBuf pBuffer, ThePrimordiumForgeRecipe pRecipe) {
+            pBuffer.writeInt(pRecipe.inputItems.size());
 
-            for(Ingredient ingredient: thePrimordiumForgeRecipe.getIngredients()) {
-                ingredient.toNetwork(friendlyByteBuf);
+            for (Ingredient ingredient : pRecipe.getIngredients()) {
+                ingredient.toNetwork(pBuffer);
             }
-            friendlyByteBuf.writeItemStack(thePrimordiumForgeRecipe.getResultItem(null),false);
 
+            pBuffer.writeItemStack(pRecipe.getResultItem(null), false);
         }
     }
 }

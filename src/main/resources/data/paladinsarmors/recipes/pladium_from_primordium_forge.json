@@ -1,18 +1,17 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "category": "misc",
+  "type": "paladinsarmors:forge_melting",
   "ingredients": [
     {
-      "item": "paladinsarmors:raw_dark_titanium"
+      "item": "minecraft:blaze_rod"
     },
     {
-      "item": "minecraft:blaze_rod"
+      "item": "paladinsarmors:raw_dark_titanium"
     },
     {
       "item": "paladinsarmors:raw_red_steel"
     }
   ],
-  "result": {
+  "output": {
     "count": 2,
     "item": "paladinsarmors:pladium_ingot"
   }
