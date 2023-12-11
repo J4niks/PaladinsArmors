@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 250,
+  "experience": 0.45,
+  "group": "dark_titanium_ingot",
+  "ingredient": {
+    "item": "paladinsarmors:dark_titanium_ore"
+  },
+  "result": "paladinsarmors:dark_titanium_ingot"
+}

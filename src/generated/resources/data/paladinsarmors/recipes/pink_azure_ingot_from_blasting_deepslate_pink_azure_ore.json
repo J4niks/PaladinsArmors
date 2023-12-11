@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.35,
+  "group": "pink_azure_ingot",
+  "ingredient": {
+    "item": "paladinsarmors:deepslate_pink_azure_ore"
+  },
+  "result": "paladinsarmors:pink_azure_ingot"
+}

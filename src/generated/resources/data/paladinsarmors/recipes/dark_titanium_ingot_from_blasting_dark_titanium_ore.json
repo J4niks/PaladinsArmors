@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 150,
+  "experience": 0.45,
+  "group": "dark_titanium_ingot",
+  "ingredient": {
+    "item": "paladinsarmors:dark_titanium_ore"
+  },
+  "result": "paladinsarmors:dark_titanium_ingot"
+}

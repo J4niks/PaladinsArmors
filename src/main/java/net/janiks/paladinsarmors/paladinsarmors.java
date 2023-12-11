@@ -2,11 +2,14 @@ package net.janiks.paladinsarmors;
 //a
 import com.mojang.logging.LogUtils;
 import net.janiks.paladinsarmors.block.ModBlocks;
-import net.janiks.paladinsarmors.items.ModCreativeTabs;
-import net.janiks.paladinsarmors.items.ModItems;
+import net.janiks.paladinsarmors.block.entity.ModBlockEntities;
+import net.janiks.paladinsarmors.item.ModCreativeTabs;
+import net.janiks.paladinsarmors.item.ModItems;
+import net.janiks.paladinsarmors.screen.ModMenuTypes;
+import net.janiks.paladinsarmors.screen.ThePrimordiumForgeScreen;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.common.CreativeModeTabRegistry;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -31,8 +34,10 @@ public class paladinsarmors {
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
+        ModMenuTypes.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
@@ -60,6 +65,7 @@ public class paladinsarmors {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
+            MenuScreens.register(ModMenuTypes.PRIMORDIUM_FORGE_MENU.get(), ThePrimordiumForgeScreen::new);
 
         }
     }

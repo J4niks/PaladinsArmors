@@ -1,0 +1,4 @@
+// 1.20.1	2023-12-10T18:13:49.8693663	Tags for minecraft:block mod id paladinsarmors
+3b677df3bc40a4e45ce67964f813ac07626867f3 data/forge/tags/blocks/needs_netherite_tool.json
+798e5a14fa7e6d6ed966c4232668e3fd3ce7f5f6 data/minecraft/tags/blocks/mineable/pickaxe.json
+7c838abaa64518b3b399260f998cc1ffcdbfda17 data/minecraft/tags/blocks/needs_diamond_tool.json

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_raw_pink_azure": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "paladinsarmors:raw_pink_azure"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "paladinsarmors:pink_azure_ingot_from_smelting_raw_pink_azure"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_raw_pink_azure",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "paladinsarmors:pink_azure_ingot_from_smelting_raw_pink_azure"
+    ]
+  },
+  "sends_telemetry_event": false
+}

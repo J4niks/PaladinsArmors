@@ -15,7 +15,7 @@
   "block.paladinsarmors.raw_dark_titanium_block": "Raw Dark Titanium Block",
   "block.paladinsarmors.red_steel_block": "Red steel block",
   "block.paladinsarmors.raw_red_steel_block": "Raw Red Steel Block",
-  "block.paladinsarmors.pladium_block": "Pladium_block",
+  "block.paladinsarmors.pladium_block": "Pladium block",
   "block.paladinsarmors.platinum_block": "Block of Platinum",
   "block.paladinsarmors.raw_platinum_block": "Block of raw Platinum",
   "block.paladinsarmors.platinum_ore": "Platinum Ore",
@@ -26,6 +26,7 @@
   "block.paladinsarmors.pink_azure_ore": "Pink Azure Ore",
   "block.paladinsarmors.dark_titanium_ore": "Dark Titanium Ore",
   "block.paladinsarmors.red_steel_ore": "Red Steel Ore",
+  "block.paladinsarmors.the_primordium_forge": "The Primordium Forge",
   "creativetab.paladinsarmors_tab": "Paladins Armors"
 
 
