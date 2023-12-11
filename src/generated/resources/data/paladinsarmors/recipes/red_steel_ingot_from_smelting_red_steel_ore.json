@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 300,
+  "experience": 0.6,
+  "group": "red_steel_ingot",
+  "ingredient": {
+    "item": "paladinsarmors:red_steel_ore"
+  },
+  "result": "paladinsarmors:red_steel_ingot"
+}

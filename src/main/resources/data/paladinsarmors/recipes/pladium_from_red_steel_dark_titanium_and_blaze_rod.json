@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "paladinsarmors:raw_dark_titanium"
+    },
+    {
+      "item": "minecraft:blaze_rod"
+    },
+    {
+      "item": "paladinsarmors:raw_red_steel"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "paladinsarmors:pladium_ingot"
+  }
+}

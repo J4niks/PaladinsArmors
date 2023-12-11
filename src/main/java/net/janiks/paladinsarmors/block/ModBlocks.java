@@ -1,14 +1,12 @@
 package net.janiks.paladinsarmors.block;
 
-import net.janiks.paladinsarmors.items.ModItems;
+import net.janiks.paladinsarmors.block.custom.ThePrimordiumForgeBlock;
+import net.janiks.paladinsarmors.item.ModItems;
 import net.janiks.paladinsarmors.paladinsarmors;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.DropExperienceBlock;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -21,6 +19,8 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, paladinsarmors.MODID);
     //NORMAL BLOCKS
+    public static final RegistryObject<Block> THE_PRIMORDIUM_FORGE = registerBlock("the_primordium_forge",
+            () -> new ThePrimordiumForgeBlock(BlockBehaviour.Properties.copy(Blocks.ANVIL).noOcclusion()));
     public static final RegistryObject<Block> PLATINUM_BLOCK = registerBlock("platinum_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
     public static final RegistryObject<Block> RAW_PLATINUM_BLOCK = registerBlock("raw_platinum_block",

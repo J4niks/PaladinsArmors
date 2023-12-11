@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.6,
+  "group": "red_steel_ingot",
+  "ingredient": {
+    "item": "paladinsarmors:raw_red_steel"
+  },
+  "result": "paladinsarmors:red_steel_ingot"
+}

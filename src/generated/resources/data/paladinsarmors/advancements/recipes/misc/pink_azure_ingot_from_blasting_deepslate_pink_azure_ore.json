@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_deepslate_pink_azure_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "paladinsarmors:deepslate_pink_azure_ore"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "paladinsarmors:pink_azure_ingot_from_blasting_deepslate_pink_azure_ore"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_deepslate_pink_azure_ore",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "paladinsarmors:pink_azure_ingot_from_blasting_deepslate_pink_azure_ore"
+    ]
+  },
+  "sends_telemetry_event": false
+}
