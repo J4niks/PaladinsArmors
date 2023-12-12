@@ -32,10 +32,13 @@ public class ThePrimordiumForgeRecipe implements Recipe<SimpleContainer> {
         }
 
         return inputItems.get(0).test(pContainer.getItem(0)) &&
-               inputItems.get(1).test(pContainer.getItem(0)) &&
-               inputItems.get(2).test(pContainer.getItem(0));
+               inputItems.get(1).test(pContainer.getItem(1)) &&
+               inputItems.get(2).test(pContainer.getItem(2));
     }
-
+@Override
+        public NonNullList<Ingredient> getIngredients() {
+        return inputItems;
+}
     @Override
     public ItemStack assemble(SimpleContainer pContainer, RegistryAccess pRegistryAccess) {
         return output.copy();
@@ -80,7 +83,7 @@ public class ThePrimordiumForgeRecipe implements Recipe<SimpleContainer> {
             ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pSerializedRecipe, "output"));
 
             JsonArray ingredients = GsonHelper.getAsJsonArray(pSerializedRecipe, "ingredients");
-            NonNullList<Ingredient> inputs = NonNullList.withSize(1, Ingredient.EMPTY);
+            NonNullList<Ingredient> inputs = NonNullList.withSize(3, Ingredient.EMPTY);
 
             for(int i = 0; i < inputs.size(); i++) {
                 inputs.set(i, Ingredient.fromJson(ingredients.get(i)));

@@ -7,6 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.Container;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -28,7 +29,6 @@ import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import javax.swing.text.html.Option;
 import java.util.Optional;
 
 public class ThePrimordiumForgeBlockEntity extends BlockEntity implements MenuProvider {
@@ -39,19 +39,18 @@ public class ThePrimordiumForgeBlockEntity extends BlockEntity implements MenuPr
     private static final int INPUT_SLOT2 = 2;
     private static final int OUTPUT_SLOT = 3;
 
-
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
 
     protected final ContainerData data;
     private int progress = 0;
     private int maxProgress = 200;
 
-    public ThePrimordiumForgeBlockEntity( BlockPos pPos, BlockState pBlockState) {
+    public ThePrimordiumForgeBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.PRIMORDIUM_FORGE_BE.get(), pPos, pBlockState);
         this.data = new ContainerData() {
             @Override
-            public int get(int i) {
-                return switch (i){
+            public int get(int pIndex) {
+                return switch (pIndex) {
                     case 0 -> ThePrimordiumForgeBlockEntity.this.progress;
                     case 1 -> ThePrimordiumForgeBlockEntity.this.maxProgress;
                     default -> 0;
@@ -59,10 +58,10 @@ public class ThePrimordiumForgeBlockEntity extends BlockEntity implements MenuPr
             }
 
             @Override
-            public void set(int i, int i1) {
-                switch (i){
-                    case 0 -> ThePrimordiumForgeBlockEntity.this.progress = i;
-                    case 1 -> ThePrimordiumForgeBlockEntity.this.maxProgress = i;
+            public void set(int pIndex, int pValue) {
+                switch (pIndex) {
+                    case 0 -> ThePrimordiumForgeBlockEntity.this.progress = pValue;
+                    case 1 -> ThePrimordiumForgeBlockEntity.this.maxProgress = pValue;
                 }
             }
 
@@ -75,9 +74,10 @@ public class ThePrimordiumForgeBlockEntity extends BlockEntity implements MenuPr
 
     @Override
     public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
-        if(cap == ForgeCapabilities.ITEM_HANDLER){
+        if(cap == ForgeCapabilities.ITEM_HANDLER) {
             return lazyItemHandler.cast();
         }
+
         return super.getCapability(cap, side);
     }
 
@@ -93,13 +93,12 @@ public class ThePrimordiumForgeBlockEntity extends BlockEntity implements MenuPr
         lazyItemHandler.invalidate();
     }
 
-    public void drops(){
+    public void drops() {
         SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
-        for(int i = 0; i < itemHandler.getSlots(); i++){
+        for(int i = 0; i < itemHandler.getSlots(); i++) {
             inventory.setItem(i, itemHandler.getStackInSlot(i));
         }
-
-        Containers.dropContents(this.level,this.worldPosition,inventory);
+        Containers.dropContents(this.level, this.worldPosition, inventory);
     }
 
     @Override
@@ -117,6 +116,7 @@ public class ThePrimordiumForgeBlockEntity extends BlockEntity implements MenuPr
     protected void saveAdditional(CompoundTag pTag) {
         pTag.put("inventory", itemHandler.serializeNBT());
         pTag.putInt("the_primordium_forge.progress", progress);
+
         super.saveAdditional(pTag);
     }
 
@@ -127,16 +127,16 @@ public class ThePrimordiumForgeBlockEntity extends BlockEntity implements MenuPr
         progress = pTag.getInt("the_primordium_forge.progress");
     }
 
-    public void tick(Level plevel, BlockPos pPos, BlockState pState) {
+    public void tick(Level pLevel, BlockPos pPos, BlockState pState) {
         if(hasRecipe()) {
             increaseCraftingProgress();
-            setChanged(plevel,pPos,pState);
+            setChanged(pLevel, pPos, pState);
 
-            if(hasProgressFinished()){
+            if(hasProgressFinished()) {
                 craftItem();
                 resetProgress();
             }
-        }else {
+        } else {
             resetProgress();
         }
     }
@@ -146,47 +146,44 @@ public class ThePrimordiumForgeBlockEntity extends BlockEntity implements MenuPr
     }
 
     private void craftItem() {
-        Optional<ThePrimordiumForgeRecipe>  recipe = getCurrentRecipe();
+        Optional<ThePrimordiumForgeRecipe> recipe = getCurrentRecipe();
         ItemStack result = recipe.get().getResultItem(null);
 
-        this.itemHandler
-                .extractItem(INPUT_SLOT, 1, false);
-        this.itemHandler
-                .extractItem(INPUT_SLOT1, 1, false);
-        this.itemHandler
-                .extractItem(INPUT_SLOT2, 1, false);
-
+        this.itemHandler.extractItem(INPUT_SLOT, 1, false);
+        this.itemHandler.extractItem(INPUT_SLOT1, 1, false);
+        this.itemHandler.extractItem(INPUT_SLOT2, 1, false);
 
         this.itemHandler.setStackInSlot(OUTPUT_SLOT, new ItemStack(result.getItem(),
                 this.itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + result.getCount()));
     }
+
     private boolean hasRecipe() {
-        Optional<ThePrimordiumForgeRecipe>  recipe = getCurrentRecipe();
-        if(recipe.isEmpty()){
+        Optional<ThePrimordiumForgeRecipe> recipe = getCurrentRecipe();
+
+        if(recipe.isEmpty()) {
             return false;
         }
         ItemStack result = recipe.get().getResultItem(getLevel().registryAccess());
 
-        return  canInsertAmountIntoOutputSlot(result.getCount()) && canInsertItemIntoOutputSlot(result.getItem());
+        return canInsertAmountIntoOutputSlot(result.getCount()) && canInsertItemIntoOutputSlot(result.getItem());
     }
 
     private Optional<ThePrimordiumForgeRecipe> getCurrentRecipe() {
         SimpleContainer inventory = new SimpleContainer(this.itemHandler.getSlots());
         for(int i = 0; i < itemHandler.getSlots(); i++) {
-            inventory.setItem(i,this.itemHandler.getStackInSlot(i));
+            inventory.setItem(i, this.itemHandler.getStackInSlot(i));
         }
+
         return this.level.getRecipeManager().getRecipeFor(ThePrimordiumForgeRecipe.Type.INSTANCE, inventory, level);
     }
 
     private boolean canInsertItemIntoOutputSlot(Item item) {
         return this.itemHandler.getStackInSlot(OUTPUT_SLOT).isEmpty() || this.itemHandler.getStackInSlot(OUTPUT_SLOT).is(item);
-
     }
 
     private boolean canInsertAmountIntoOutputSlot(int count) {
         return this.itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + count <= this.itemHandler.getStackInSlot(OUTPUT_SLOT).getMaxStackSize();
     }
-
 
     private boolean hasProgressFinished() {
         return progress >= maxProgress;
@@ -195,6 +192,4 @@ public class ThePrimordiumForgeBlockEntity extends BlockEntity implements MenuPr
     private void increaseCraftingProgress() {
         progress++;
     }
-
-
 }

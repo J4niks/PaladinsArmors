@@ -53,6 +53,14 @@ public class ModCreativeTabs {
                         output.accept(ModBlocks.DEEPSLATE_PINK_AZURE_ORE.get());
                         output.accept(ModBlocks.DARK_TITANIUM_ORE.get());
                         output.accept(ModBlocks.RED_STEEL_ORE.get());
+//ARMORS
+                        output.accept(ModItems.PLATINUM_HELMET.get());
+                        output.accept(ModItems.PLATINUM_CHESTPLATE.get());
+                        output.accept(ModItems.PLATINUM_LEGGINGS.get());
+                        output.accept(ModItems.PLATINUM_BOOTS.get());
+
+
+
                     })
                     .build());
 
