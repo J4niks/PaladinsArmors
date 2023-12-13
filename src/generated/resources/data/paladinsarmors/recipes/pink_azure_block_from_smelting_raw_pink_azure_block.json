@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "cookingtime": 200,
+  "experience": 0.3,
+  "group": "pink_azure_block",
+  "ingredient": {
+    "item": "paladinsarmors:raw_pink_azure_block"
+  },
+  "result": "paladinsarmors:pink_azure_block"
+}

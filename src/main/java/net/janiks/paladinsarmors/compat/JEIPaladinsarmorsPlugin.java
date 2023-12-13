@@ -30,8 +30,8 @@ public class JEIPaladinsarmorsPlugin implements IModPlugin {
     public void registerRecipes(IRecipeRegistration registration) {
         RecipeManager recipeManager = Minecraft.getInstance().level.getRecipeManager();
 
-        List<ThePrimordiumForgeRecipe> forgeMeltingRecipes = recipeManager.getAllRecipesFor(ThePrimordiumForgeRecipe.Type.INSTANCE);
-        registration.addRecipes(ForgeMeltingCategory.PRIMORDIUM_FORGE_RECIPE_RECIPE_TYPE,forgeMeltingRecipes);
+        List<ThePrimordiumForgeRecipe> forgeSmeltingRecipes = recipeManager.getAllRecipesFor(ThePrimordiumForgeRecipe.Type.INSTANCE);
+        registration.addRecipes(ForgeMeltingCategory.PRIMORDIUM_FORGE_RECIPE_RECIPE_TYPE,forgeSmeltingRecipes);
     }
 
     @Override

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "S": {
+      "item": "paladinsarmors:platinum_ingot"
+    },
+    "Z": {
+      "item": "minecraft:red_wool"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "ZSZ",
+    "SSS"
+  ],
+  "result": {
+    "item": "paladinsarmors:platinum_leggings"
+  },
+  "show_notification": true
+}

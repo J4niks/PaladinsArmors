@@ -12,8 +12,9 @@ public class ModRecipes {
     public static final DeferredRegister<RecipeSerializer<?>> SERIALIZERS =
             DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, paladinsarmors.MODID);
 
-    public static final RegistryObject<RecipeSerializer<ThePrimordiumForgeRecipe>> PLADIUM_INGOT_SERIALIZER =
-            SERIALIZERS.register("pladium_ingot",()-> ThePrimordiumForgeRecipe.Serializer.INSTANCE);
+    public static final RegistryObject<RecipeSerializer<ThePrimordiumForgeRecipe>> FORGE_SMELTING_SERIALIZER =
+            SERIALIZERS.register("forge_smelting",()-> ThePrimordiumForgeRecipe.Serializer.INSTANCE);
+    //                                  Ou pladium_ingot
     public static void  register(IEventBus eventBus) {
         SERIALIZERS.register(eventBus);
 

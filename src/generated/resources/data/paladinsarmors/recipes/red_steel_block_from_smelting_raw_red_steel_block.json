@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "cookingtime": 2000,
+  "experience": 0.3,
+  "group": "red_steel_block",
+  "ingredient": {
+    "item": "paladinsarmors:raw_red_steel_block"
+  },
+  "result": "paladinsarmors:red_steel_block"
+}

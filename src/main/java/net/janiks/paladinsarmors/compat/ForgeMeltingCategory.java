@@ -17,7 +17,7 @@ import net.minecraft.world.item.ItemStack;
 
 public class ForgeMeltingCategory implements IRecipeCategory<ThePrimordiumForgeRecipe> {
 
-    public static final ResourceLocation UID = new ResourceLocation(paladinsarmors.MODID,"forge_melting");
+    public static final ResourceLocation UID = new ResourceLocation(paladinsarmors.MODID,"forge_smelting");
     public static final ResourceLocation TEXTURE = new ResourceLocation(paladinsarmors.MODID,
     "textures/gui/the_primordium_forge_gui.png");
 

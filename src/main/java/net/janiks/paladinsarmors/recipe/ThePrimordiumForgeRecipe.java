@@ -31,14 +31,11 @@ public class ThePrimordiumForgeRecipe implements Recipe<SimpleContainer> {
             return false;
         }
 
-        return inputItems.get(0).test(pContainer.getItem(0)) &&
-               inputItems.get(1).test(pContainer.getItem(1)) &&
-               inputItems.get(2).test(pContainer.getItem(2));
+        return inputItems.get(0).test(pContainer.getItem(0))&&
+         inputItems.get(1).test(pContainer.getItem(1))&&
+         inputItems.get(2).test(pContainer.getItem(2));
     }
-@Override
-        public NonNullList<Ingredient> getIngredients() {
-        return inputItems;
-}
+
     @Override
     public ItemStack assemble(SimpleContainer pContainer, RegistryAccess pRegistryAccess) {
         return output.copy();
@@ -71,12 +68,12 @@ public class ThePrimordiumForgeRecipe implements Recipe<SimpleContainer> {
 
     public static class Type implements RecipeType<ThePrimordiumForgeRecipe> {
         public static final Type INSTANCE = new Type();
-        public static final String ID = "forge_melting";
+        public static final String ID = "forge_smelting";
     }
 
     public static class Serializer implements RecipeSerializer<ThePrimordiumForgeRecipe> {
         public static final Serializer INSTANCE = new Serializer();
-        public static final ResourceLocation ID = new ResourceLocation(paladinsarmors.MODID, "forge_melting");
+        public static final ResourceLocation ID = new ResourceLocation(paladinsarmors.MODID, "forge_smelting");
 
         @Override
         public ThePrimordiumForgeRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {

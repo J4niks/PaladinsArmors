@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "blocks",
+  "cookingtime": 1000,
+  "experience": 0.3,
+  "group": "platinum_block",
+  "ingredient": {
+    "item": "paladinsarmors:raw_platinum_block"
+  },
+  "result": "paladinsarmors:platinum_block"
+}

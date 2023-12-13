@@ -1,5 +1,5 @@
 {
-  "type": "paladinsarmors:forge_melting",
+  "type": "paladinsarmors:forge_smelting",
   "ingredients": [
     {
       "item": "minecraft:blaze_rod"

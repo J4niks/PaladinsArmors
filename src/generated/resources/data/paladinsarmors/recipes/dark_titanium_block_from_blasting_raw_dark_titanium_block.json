@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "blocks",
+  "cookingtime": 1000,
+  "experience": 0.3,
+  "group": "dark_titanium_block",
+  "ingredient": {
+    "item": "paladinsarmors:raw_dark_titanium_block"
+  },
+  "result": "paladinsarmors:dark_titanium_block"
+}

@@ -73,6 +73,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
 
 
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.PLATINUM_BLOCK.get())
                 .pattern("SSS")
                 .pattern("SSS")
