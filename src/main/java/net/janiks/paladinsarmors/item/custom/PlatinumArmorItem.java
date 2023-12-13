@@ -4,7 +4,9 @@ import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 import net.janiks.paladinsarmors.item.ModItems;
 import net.janiks.paladinsarmors.item.client.PlatinumArmorRenderer;
+import net.janiks.paladinsarmors.paladinsarmors;
 import net.minecraft.client.model.HumanoidModel;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -55,6 +57,7 @@ public class PlatinumArmorItem extends ArmorItem implements GeoItem {
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new AnimationController<>(this, 20, state -> {
 
+;
             state.setAnimation(DefaultAnimations.IDLE);
 
             Entity entity = state.getData(DataTickets.ENTITY);

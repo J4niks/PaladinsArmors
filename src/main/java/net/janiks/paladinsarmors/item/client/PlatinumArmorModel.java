@@ -8,7 +8,7 @@ import software.bernie.geckolib.model.GeoModel;
 public class PlatinumArmorModel extends GeoModel<PlatinumArmorItem> {
     @Override
     public ResourceLocation getModelResource(PlatinumArmorItem animatable) {
-        return new ResourceLocation(paladinsarmors.MODID,"geo/platinum_armor.json");
+        return new ResourceLocation(paladinsarmors.MODID,"geo/platinum_armor.geo.json");
     }
 
     @Override
