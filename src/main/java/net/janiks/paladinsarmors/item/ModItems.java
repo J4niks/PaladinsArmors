@@ -1,5 +1,6 @@
 package net.janiks.paladinsarmors.item;
 
+import net.janiks.paladinsarmors.item.custom.PlatinumArmorItem;
 import net.janiks.paladinsarmors.paladinsarmors;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
@@ -7,6 +8,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
@@ -33,13 +35,13 @@ public class ModItems {
 
 //Armors
     public static final RegistryObject<Item> PLATINUM_HELMET = ITEMS.register("platinum_helmet",
-            () -> new ArmorItem(ModArmorMaterials.PLATINUM, ArmorItem.Type.HELMET,new Item.Properties()));
+            () -> new PlatinumArmorItem(ModArmorMaterials.PLATINUM, ArmorItem.Type.HELMET,new Item.Properties()));
     public static final RegistryObject<Item> PLATINUM_CHESTPLATE = ITEMS.register("platinum_chestplate",
-            () -> new ArmorItem(ModArmorMaterials.PLATINUM, ArmorItem.Type.CHESTPLATE,new Item.Properties()));
+            () -> new PlatinumArmorItem(ModArmorMaterials.PLATINUM, ArmorItem.Type.CHESTPLATE,new Item.Properties()));
     public static final RegistryObject<Item> PLATINUM_LEGGINGS = ITEMS.register("platinum_leggings",
-            () -> new ArmorItem(ModArmorMaterials.PLATINUM, ArmorItem.Type.LEGGINGS,new Item.Properties()));
+            () -> new PlatinumArmorItem(ModArmorMaterials.PLATINUM, ArmorItem.Type.LEGGINGS,new Item.Properties()));
     public static final RegistryObject<Item> PLATINUM_BOOTS = ITEMS.register("platinum_boots",
-            () -> new ArmorItem(ModArmorMaterials.PLATINUM, ArmorItem.Type.BOOTS,new Item.Properties()));
+            () -> new PlatinumArmorItem(ModArmorMaterials.PLATINUM, ArmorItem.Type.BOOTS,new Item.Properties()));
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }

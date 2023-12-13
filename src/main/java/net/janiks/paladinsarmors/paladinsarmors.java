@@ -41,6 +41,7 @@ public class paladinsarmors {
         ModMenuTypes.register(modEventBus);
         ModRecipes.register(modEventBus);
 
+
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
     }
