@@ -52,13 +52,16 @@ public class PlatinumArmorItem extends ArmorItem implements GeoItem {
             }
         });
     }
+    public static final RawAnimation CAPE = RawAnimation.begin().then("platinum_armor_animation", Animation.LoopType.LOOP);
+
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new AnimationController<>(this, 20, state -> {
 
 ;
-            state.setAnimation(DefaultAnimations.IDLE);
+
+            state.setAnimation(CAPE);
 
             Entity entity = state.getData(DataTickets.ENTITY);
 

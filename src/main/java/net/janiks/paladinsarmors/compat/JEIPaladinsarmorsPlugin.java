@@ -18,25 +18,25 @@ import java.util.List;
 public class JEIPaladinsarmorsPlugin implements IModPlugin {
     @Override
     public ResourceLocation getPluginUid() {
-        return new ResourceLocation(paladinsarmors.MODID,"jei_plugin");
+        return new ResourceLocation(paladinsarmors.MODID, "jei_plugin");
     }
 
     @Override
     public void registerCategories(IRecipeCategoryRegistration registration) {
-        registration.addRecipeCategories(new ForgeMeltingCategory(registration.getJeiHelpers().getGuiHelper()));
+        registration.addRecipeCategories(new ForgeSmeltingCategory(registration.getJeiHelpers().getGuiHelper()));
     }
 
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
         RecipeManager recipeManager = Minecraft.getInstance().level.getRecipeManager();
 
-        List<ThePrimordiumForgeRecipe> forgeSmeltingRecipes = recipeManager.getAllRecipesFor(ThePrimordiumForgeRecipe.Type.INSTANCE);
-        registration.addRecipes(ForgeMeltingCategory.PRIMORDIUM_FORGE_RECIPE_RECIPE_TYPE,forgeSmeltingRecipes);
+        List<ThePrimordiumForgeRecipe> forgeRecipes = recipeManager.getAllRecipesFor(ThePrimordiumForgeRecipe.Type.INSTANCE);
+        registration.addRecipes(ForgeSmeltingCategory.FORGE_SMELTING_TYPE, forgeRecipes);
     }
 
     @Override
     public void registerGuiHandlers(IGuiHandlerRegistration registration) {
-        registration.addRecipeClickArea(ThePrimordiumForgeScreen.class, 48,38,20,30,
-        ForgeMeltingCategory.PRIMORDIUM_FORGE_RECIPE_RECIPE_TYPE);
+        registration.addRecipeClickArea(ThePrimordiumForgeScreen.class, 40, 30, 20, 30,
+                ForgeSmeltingCategory.FORGE_SMELTING_TYPE);
     }
 }

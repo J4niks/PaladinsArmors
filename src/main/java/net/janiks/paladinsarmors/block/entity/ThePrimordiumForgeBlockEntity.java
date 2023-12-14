@@ -166,7 +166,7 @@ public class ThePrimordiumForgeBlockEntity extends BlockEntity implements MenuPr
 
     private void craftItem() {
         Optional<ThePrimordiumForgeRecipe> recipe = getCurrentRecipe();
-        ItemStack result = recipe.get().getResultItem(null);
+        ItemStack result = recipe.get().getResultItem(getLevel().registryAccess());
 
         this.itemHandler.extractItem(INPUT_SLOT, 1, false);
         this.itemHandler.extractItem(INPUT_SLOT1, 1, false);
